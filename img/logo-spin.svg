@@ -13,12 +13,12 @@
    id="Слой_1"
    x="0px"
    y="0px"
-   viewBox="0 0 65.543486 76.099756"
+   viewBox="0 0 67.433752 78.272745"
    style="image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
    xml:space="preserve"
    sodipodi:docname="logo-spin.svg"
-   width="65.543488"
-   height="76.099754"
+   width="67.433754"
+   height="78.272743"
    inkscape:version="0.92.2pre0 (973e216, 2017-07-25)"><metadata
      id="metadata15"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
@@ -33,12 +33,12 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1366"
-     inkscape:window-height="696"
+     inkscape:window-height="691"
      id="namedview11"
      showgrid="false"
-     inkscape:zoom="4.3857347"
-     inkscape:cx="27.821518"
-     inkscape:cy="34.89522"
+     inkscape:zoom="3.1011827"
+     inkscape:cx="-0.71884956"
+     inkscape:cy="9.1569582"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -47,16 +47,15 @@
      id="style2">
 	.st0{fill:#ED443E;}
 	.st1{fill:#C2232F;}
-</style><path
-     style="fill:#ed443e"
-     inkscape:connector-curvature="0"
-     id="path4"
-     d="M 33.243487,76.099755 C 32,75.6 32.364373,75.742507 32,75.6 25,71.9 18.5,67.8 11.5,63.7 7.8,61.7 4.5,59.6 0.9,57.6 0.4,57.2 0,56.8 0,56.4 V 19.6 C 0,18.8 0.4,18.8 0.8,18.4 8.6,13.9 16.4,9.4 24.1,4.9 26.6,3.3 29,2 31.9,0.4 32.3,0.4 32.7,0 32.7,0 c 0.4,0.4 0,0.8 0,1.2 V 18 c 0,0.8 0.4,1.2 1.2,1.2 h 30.3 1.2 c -0.256513,0.899755 -0.2,0.4 -0.8,0.8 -3.7,2.1 -6.5,3.7 -9.8,5.7 -7,4.1 -13.9,7.8 -20.5,11.9 -0.03723,0.883686 -0.57831,1.243379 -0.8,1.2 v 36 c -0.256513,1.299755 -0.257737,0.130215 -0.256513,1.299755 z"
-     class="st0"
-     sodipodi:nodetypes="ccccssccccssscccccccc" /><path
-     style="fill:#c2232f"
-     inkscape:connector-curvature="0"
-     id="path6"
-     d="m 33.243487,76.099755 v -1.2 -36 c 0,-0.538003 0.11785,-0.575238 0.8,-1.2 7.7,-5 13.2,-7.8 20.3,-12.1 3.3,-2 3.323551,-2.034865 11.056513,-6.399755 v 0 c -0.256513,0.899755 -0.156513,0.499755 -0.256513,0.899755 -1.6,2.9 -3.3,5.7 -4.9,8.6 -3.7,6.1 -7,12.3 -10.6,18.4 -0.4,0.8 0,0.8 0.4,1.2 4.9,2.9 9.8,5.7 14.7,8.6 0.4,0 0.4,0.4 0.8,0.8 -1.6,0.8 -3.3,2 -4.9,2.9 -9,4.9 -18,10.2 -27.4,15.5 z"
-     class="st1"
-     sodipodi:nodetypes="csscccccccccccc" /></svg>
+</style><g
+     style="stroke-width:4.67549944"
+     id="g10"
+     transform="matrix(0.21387783,0,0,0.21387783,3420.1567,-1647.9286)"><path
+       style="fill:#ef4136;stroke-width:4.67549944"
+       inkscape:connector-curvature="0"
+       id="path6"
+       d="m -15835,7705 c -156.17,93.5 0,0 -156.17,93.5 l 0.161,181.35 5.75,3.2364 c 152.75,87.883 -5.75,-3.2364 150.25,86.539 l 2.5,1.3438 1.75,-184.76 154.88,-89.709 -78.486,-0.5 c -43.165,-0.275 -78.738,-0.755 -79.049,-1.0664 -0.311,-0.3114 -0.589,-20.674 -0.619,-45.25 -0.03,-25.945 -0.436,-44.684 -0.961,-44.684 z" /><path
+       style="fill:#bf1e2e;fill-opacity:0.98648999;stroke-width:4.67549944"
+       inkscape:connector-curvature="0"
+       id="path8"
+       d="m -15831,7886.2 154.88,-89.714 -75.929,136.92 c 0.221,1.5296 9.81,7.6022 37.999,24.063 20.738,12.11 37.838,22.464 38,23.01 0.163,0.5458 -6.004,4.6293 -13.704,9.0746 -112.09,64.713 -141.68,80.9 -142.99,81.405 z" /></g></svg>
