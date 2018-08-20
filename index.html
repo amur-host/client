@@ -56,7 +56,7 @@
         <!-- Accounts -->
         <div id="accounts">
           <h2 id="AccHeader">{{accounts.caption}}</h2>
-          <div class="wavesAccounts" ng-controller="accountListController as list" ng-show="accounts.mode === 'list'">
+          <div class="amurAccounts" ng-controller="accountListController as list" ng-show="accounts.mode === 'list'">
             <p class="loginAccountDiv" ng-repeat="account in list.accounts track by $index">
                                     <span class="loginAccount fade" tooltipster tooltip-theme="tooltipster-theme1" title="Войти в аккаунт." ng-click="list.signIn(account)"> <br/>
                                         <b>{{::account.name}}</b> <span class="divider-1"></span> <small>{{::account.address}}</small>
@@ -74,7 +74,7 @@
             <br/>
 
             <!-- Remove Account popup -->
-            <div id="account-remove-popup" waves-dialog on-dialog-ok="list.removeAccount()" is-error="true" ok-button-caption="УДАЛИТЬ">
+            <div id="account-remove-popup" amur-dialog on-dialog-ok="list.removeAccount()" is-error="true" ok-button-caption="УДАЛИТЬ">
               <h2 class="sectionHeader">Внимание!</h2>
               <p class="dialog-text">Эта функция полностью удаляет аккаунт с этого устройства.</p>
               <p class="dialog-text">Аккаунт не будет удален полностью, но больше не сможет отображаться в списке учетных записей при запуске этого кошелька.</p>
@@ -108,7 +108,7 @@
               <span class="divider-2"></span>
               <button class="wButton fade" type="reset" ng-click="vm.back()">НАЗАД</button>
 
-              <div id="seed-whitespace-popup" waves-dialog on-dialog-ok="vm.registerAccount()" closeable="false" ok-button-caption="ПРОДОЛЖИТЬ">
+              <div id="seed-whitespace-popup" amur-dialog on-dialog-ok="vm.registerAccount()" closeable="false" ok-button-caption="ПРОДОЛЖИТЬ">
                 <h2 class="sectionHeader">УВЕДОМЛЕНИЕ О SEED-ФРАЗЕ</h2>
                 <p class="dialog-text">Ваша SEED-фраза восстановления содержит пробелы между словами</p>
                 <p class="dialog-text">Секретная фраза с лишними пробелами или вообще без пробелов приводит к созданию разных аккаунтов.</p>
@@ -118,7 +118,7 @@
             </form>
           </div>
 
-          <div id="login-wPop-new" waves-dialog ok-button-caption="Я ПРИНИМАЮ" on-dialog-ok="" cancel-button-visible="false" closeable="false">
+          <div id="login-wPop-new" amur-dialog ok-button-caption="Я ПРИНИМАЮ" on-dialog-ok="" cancel-button-visible="false" closeable="false">
             <h2 class="sectionHeader">Новый аккаунт</h2>
             <div class="plate-warning">
               <p class="dialog-text" style="font-weight: bold;">С осторожностью обращайтесь с SEED (Секретной фразой)!</p>
@@ -209,34 +209,35 @@
 
 <div id="wrapper" ng-switch-when="main-screen" ng-cloak>
   <!-- shared blocks -->
-  <div id="feat-not-active" waves-dialog global="true" show-buttons="false" is-error="true">
+  <div id="feat-not-active" amur-dialog global="true" show-buttons="false" is-error="true">
     <h2 class="sectionHeader">Внимание!</h2>
     <p class="dialog-text">Эта функция находится в разработке и неактивна во время релиза.</p>
     <p class="dialog-text">Подпишитесь на каналы социальных сетей, чтобы быть в курсе последних событий.</p>
     <div class="modal-media">
     	<a href="https://vk.com/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+      <a href="https://t.me/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/telegram_icon.svg" /></a>
     </div>
   </div>
   <!-- /shared blocks-->
 
   <!-- HEADER -->
   <header class="fFade noSelect" ng-controller="mainMenuController as menu">
-    <img id="topLogoH" src="img/topleftlogo_hor.svg" alt="Waves platform logo horizontal" />
+    <img id="topLogoH" src="img/topleftlogo_hor.svg" alt="Amur platform logo horizontal" />
     <div id="logoNversion2">
       <img src="img/topleftlogo2.svg" />
       <p ng-class='{testnet: isTestnet()}'>{{::home.title}} <span class="wlcversion">{{::home.version}}</span></p>
     </div>
     <span id="version" class="centerIt">
                 <span>Адрес:</span>
-                <span id="wavesAccountAddress" class="clipSpan" tooltipster tooltip-theme="tooltipster-theme3" title="Копировать адрес в буфер." ngclipboard data-clipboard-text="{{::menu.address}}" ngclipboard-success="clipboardOk()">{{::menu.address}}</span>
-                <span id="wavesAccountAddressQr" ng-click="menu.showAddressQr()">QR код</span>
+                <span id="amurAccountAddress" class="clipSpan" tooltipster tooltip-theme="tooltipster-theme3" title="Копировать адрес в буфер." ngclipboard data-clipboard-text="{{::menu.address}}" ngclipboard-success="clipboardOk()">{{::menu.address}}</span>
+                <span id="amurAccountAddressQr" ng-click="menu.showAddressQr()">QR код</span>
                 <span class="divider-2"></span>
                 <span class="inlineParagraph">Блок:</span> <span id="blockheight">{{menu.blockHeight}}</span>
             </span>
 
     <div class="noDisp">
-      <div id="address-qr-modal" waves-dialog global="true" no-support-link="true" cancel-button-visible="false" ok-button-caption="ЗАКРЫТЬ">
-        <waves-qr-code size="300" value="::menu.addressQr"></waves-qr-code>
+      <div id="address-qr-modal" amur-dialog global="true" no-support-link="true" cancel-button-visible="false" ok-button-caption="ЗАКРЫТЬ">
+        <amur-qr-code size="300" value="::menu.addressQr"></amur-qr-code>
       </div>
     </div>
 
@@ -244,7 +245,7 @@
       <a ng-click="menu.showBackupDialog()">
         <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-backup.svg" alt="Резервная копия" title="Резервное копирование"/>
       </a>
-      <div id="header-wPop-backup" waves-dialog global="true" on-dialog-ok="menu.backup()" ok-button-caption="КОПИРОВАТЬ" cancel-button-caption="ЗАКРЫТЬ">
+      <div id="header-wPop-backup" amur-dialog global="true" on-dialog-ok="menu.backup()" ok-button-caption="КОПИРОВАТЬ" cancel-button-caption="ЗАКРЫТЬ">
         <h2 class="sectionHeader">Резервное копирование</h2>
         <p>Здесь содержится основаная информация. Нажмите <span class="fontBold">КОПИРОВАТЬ</span> для копирования в буфер обмена, или нажмите <span class="fontBold">ЗАКРЫТЬ</span> для выхода.</p></br>
         <form id="backupForm">
@@ -274,7 +275,7 @@
         <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-profile.svg" alt="User profile" title="Профиль пользователя"/>
       </a>
       <div class="noDisp" ng-controller="createAliasController as create">
-        <div id="create-alias-dialog" waves-dialog global="true" ok-button-caption="СОЗДАТЬ" on-dialog-ok="create.confirmCreateAlias(create.form)">
+        <div id="create-alias-dialog" amur-dialog global="true" ok-button-caption="СОЗДАТЬ" on-dialog-ok="create.confirmCreateAlias(create.form)">
           <div class="existing-aliases">
             <h2 class="sectionHeader">Ваши псевдонимы</h2>
             <div ng-if="create.aliasList !== null">
@@ -295,14 +296,14 @@
                 <td><input class="wInput form-control" name="aliasName" type="text" placeholder="Символьное имя" ng-model="create.alias"/></td>
               </tr>
               <tr>
-                <td>Комиссия в Waves</td>
+                <td>Комиссия в Amur</td>
                 <td>{{::create.fee.formatAmount(true)}} {{::create.fee.currency.displayName}}</td>
               </tr>
               </tbody>
             </table>
           </form>
         </div>
-        <div id="create-alias-confirmation" waves-dialog global="true" ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!create.broadcast.pending" on-dialog-ok="create.broadcastTransaction()">
+        <div id="create-alias-confirmation" amur-dialog global="true" ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!create.broadcast.pending" on-dialog-ok="create.broadcastTransaction()">
           <div class="dialog-confirmation">
             <p class="dialog-text">Вы действительно хотяте создать псевдоним <span class="confirmation-value">{{create.alias}}</span>
               для вашего адреса.
@@ -315,7 +316,7 @@
         <img class="header-Icon fade" tooltipster tooltip-theme="tooltipster-theme2" src="img/uiTB-iconset-logout.svg" alt="Log out" title="Выйти" />
       </a>
     </div>
-    <waves-support-link class="in-header light"></waves-support-link>
+    <amur-support-link class="in-header light"></amur-support-link>
   </header>
   <!-- / HEADER -->
 
@@ -325,7 +326,7 @@
       <div id="tabs-Iconset" class="centerIt">
 
 
-        <span waves-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="wallet"
@@ -335,7 +336,7 @@
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Кошелек</u></center><br/>Вкладка отображения основных токенов"></span>
 
-        <span waves-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="portfolio"
@@ -344,7 +345,7 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Портфель</u></center><br/>Отображает все ваши токены."></span>
-        <span waves-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="exchange"
@@ -354,18 +355,17 @@
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Биржа</u></center><br/>Доступ к рынкам, где вы можете покупать,<br/>продавать и торговать токенами."></span>
 
-        <!--<span waves-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="leasing"
-              caption="'Waves leasing tab'"
+              caption="'Amur leasing tab'"
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Лизинг</u></center><br/>Сдайте в лизин ваши Waves<br/>другому кошельку."></span>
-          -->
+              tooltip-title="<center><u>Лизинг</u></center><br/>Сдайте в лизинг ваши Amur<br/>другому кошельку."></span>
 
-      <!--<span waves-tab
+      <!--<span amur-tab
         on-select="nav.changeTab(pageId)"
         current-page-id="nav.currentTab"
         page-id="voting"
@@ -375,7 +375,7 @@
         tooltip-title="<center><u>Voting Area</u></center><br/>Decentralized voting utility."></span>
     -->
 
-        <span waves-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="history"
@@ -385,7 +385,7 @@
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>История</u></center><br/>Доступ ко всей истории транзакций."></span>
 
-      <!--  <span waves-tab
+      <!--  <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="tokens"
@@ -397,7 +397,7 @@
             -->
 
       <!--  СООБЩЕНИЯ
-        	<span waves-tab
+        	<span amur-tab
         	on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab"
         	 page-id="messages"
         	 caption="'messages tab'"
@@ -406,7 +406,7 @@
         tooltip-title="<center><u>messages</u></center><br/>Messages."></span>
 -->
 
-        <span waves-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="community"
@@ -425,13 +425,13 @@
         <div id="mBB-wallet" class="mBB-content" ng-switch-when="wallet" ng-controller="walletListController as walletList">
 
           <div class="noDisp" ng-controller="walletSendController as send">
-            <div id="wB-butSend-WAV" waves-dialog ok-button-caption="ОТПРАВИТЬ" cancel-button-visible="false" on-dialog-ok="send.submitTransfer(send.form)">
-              <form id="send-waves-form" name="send.form" class="paymentForm" novalidate ng-validate="send.validationOptions">
+            <div id="wB-butSend-WAV" amur-dialog ok-button-caption="ОТПРАВИТЬ" cancel-button-visible="false" on-dialog-ok="send.submitTransfer(send.form)">
+              <form id="send-amur-form" name="send.form" class="paymentForm" novalidate ng-validate="send.validationOptions">
                 <h2 class="sectionHeader">Отправить платеж: {{send.currency}}</h2>
                 <table>
                   <div class="balanceAmt">
-                    <div ng-if="!send.feeAndTransferAssetsAreTheSame"><p>Баланс: </p><span class="balancewaves">{{send.assetBalance | moneyLong:true}}</span><br/></div>
-                    <p>Баланс в Wave: </p><span class="balancewaves">{{send.feeAssetBalance | moneyLong:true}}</span>
+                    <div ng-if="!send.feeAndTransferAssetsAreTheSame"><p>Баланс: </p><span class="balanceamur">{{send.assetBalance | moneyLong:true}}</span><br/></div>
+                    <p>Баланс в Wave: </p><span class="balanceamur">{{send.feeAssetBalance | moneyLong:true}}</span>
                   </div>
                   <thead>
                   <tr>
@@ -465,7 +465,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Комиссия в Waves</td>
+                    <td>Комиссия в Amur</td>
                     <td>
                       <md-autocomplete md-input-name="sendFee" md-selected-item="send.autocomplete.selectedFee" md-search-text="send.autocomplete.searchText"
                                        md-items="item in send.autocomplete.querySearch(send.autocomplete.searchText)"
@@ -481,7 +481,7 @@
                 </table>
               </form>
             </div>
-            <div id="send-payment-confirmation" waves-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!send.broadcast.pending" on-dialog-ok="send.broadcastTransaction()">
+            <div id="send-payment-confirmation" amur-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!send.broadcast.pending" on-dialog-ok="send.broadcastTransaction()">
               <div class="dialog-confirmation">
                 <p class="dialog-text">Вы отправляете <span class="confirmation-value">{{send.confirm.amount | moneyLong:true}}</span> с
                   <span class="confirmation-value">{{send.confirm.fee | moneyLong:true}}</span> комиссии на адрес<br/>
@@ -493,13 +493,13 @@
           </div>
 
           <div class="noDisp" ng-controller="walletWithdrawController as withdraw" data-type="crypto">
-            <div id="withdraw-crypto-dialog" waves-dialog ok-button-caption="ВЫВЕСТИ" on-dialog-ok="withdraw.confirmWithdraw(withdraw.assetForm)">
+            <div id="withdraw-crypto-dialog" amur-dialog ok-button-caption="ВЫВЕСТИ" on-dialog-ok="withdraw.confirmWithdraw(withdraw.assetForm)">
               <h2 class="sectionHeader">Вывести: {{withdraw.sourceCurrency}}</h2>
               <p class="dialog-text" ng-if="withdraw.isEthereum">Не выводите ETH на адрес смарт контракта!<br/>Ваша транзакция может потребовать дополнительную комиссию.</p>
               <form id="withdraw-asset-form" name="withdraw.assetForm" novalidate ng-validate="withdraw.validationOptions">
                 <table class="form-table">
                   <div class="balanceAmt">
-                    <div><p>Баланс: </p><span class="balancewaves">{{withdraw.assetBalance | moneyLong:true}}</span><br/></div>
+                    <div><p>Баланс: </p><span class="balanceamur">{{withdraw.assetBalance | moneyLong:true}}</span><br/></div>
                   </div>
                   <tbody>
                   <tr>
@@ -519,7 +519,7 @@
                     <td><input class="wInput form-control" name="withdrawTotal" type="text" placeholder="Общее количество" ng-model="withdraw.total" ng-change="withdraw.refreshAmount()" decimal-input-restrictor/></td>
                   </tr>
                   <tr>
-                    <td class="padded">Комиссия в Waves</td>
+                    <td class="padded">Комиссия в Amur</td>
                     <td class="padded">
                       <md-autocomplete md-input-name="withdrawFee" md-selected-item="withdraw.autocomplete.selectedFee" md-search-text="withdraw.autocomplete.searchText"
                                        md-items="item in withdraw.autocomplete.querySearch(withdraw.autocomplete.searchText)"
@@ -535,7 +535,7 @@
                 </table>
               </form>
             </div>
-            <div id="withdraw-confirmation" waves-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!withdraw.broadcast.pending" on-dialog-ok="withdraw.broadcastTransaction()">
+            <div id="withdraw-confirmation" amur-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!withdraw.broadcast.pending" on-dialog-ok="withdraw.broadcastTransaction()">
               <div class="dialog-confirmation">
                 <p class="dialog-text">Вы отправляете <span class="confirmation-value">{{withdraw.confirm.amount | moneyLong:true}}</span> с
                   <span class="confirmation-value">{{withdraw.confirm.fee | moneyLong:true}}</span> комиссией за шлюз <br/>
@@ -548,14 +548,14 @@
           </div>
 
           <div class="noDisp" ng-controller="walletWithdrawController as withdraw" data-type="fiat">
-            <div id="withdraw-fiat-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="withdraw-fiat-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">Вывести: {{withdraw.sourceCurrency}}</h2>
               <p class="dialog-text textCenter">
                 If you've been verified and deposited {{withdraw.sourceCurrency}}<br/>
                 you can withdraw {{withdraw.sourceCurrency}} back to your bank account<br/>
                 <br/>
                 To do so please make a SEND transaction to the<br/>
-                Waves address <span class="email"
+                Amur address <span class="email"
                                     title="Скопировать адрес в буфер обмена"
                                     tooltipster
                                     tooltip-theme="tooltipster-theme1"
@@ -585,7 +585,7 @@
           </div>
 
           <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="BTC">
-            <div id="deposit-btc-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="deposit-btc-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">Депозит: BTC</h2>
               <p class="dialog-text textCenter">
                 <img src="img/visa_mastercard_116x35.gif" width="116" height="35"><span class="divider-2"></span>
@@ -593,9 +593,9 @@
                   Купить BTC с карты
                 </button>
               </p>
-              <p class="dialog-text">Чтобы внести BTC в свой аккаунт Waves, отправьте BTC по адресу, указанному ниже.<br/>
+              <p class="dialog-text">Чтобы внести BTC в свой аккаунт Amur, отправьте BTC по адресу, указанному ниже.<br/>
                 Минимальная сумма депозита <span class="fontBold">{{::deposit.btc.minimumAmount}} BTC</span>.</p>
-              <table class="wavesTable bitcoin-requisites">
+              <table class="amurTable bitcoin-requisites">
                 <tbody>
                 <tr>
                   <td><b>{{deposit.btc.bitcoinAddress}}</b></td>
@@ -603,7 +603,7 @@
                 </tbody>
               </table>
               <p class="dialog-text">Введите этот адрес в свой клиент или кошелек Bitcoin. После подтверждения транзакции, <br/>
-                шлюз произведет передачу BTC на адрес вашей учетной записи Waves.</p>
+                шлюз произведет передачу BTC на адрес вашей учетной записи Amur.</p>
               <p class="dialog-text">Обратите внимание, что шлюз не взимает комиссию за эту операцию.</p>
               <p class="dialog-text">Вы можете сканировать этот QR-код, чтобы скопировать адрес.<br/>
                 Сумма необязательна, но она будет добавлена в QR-код, если это требуется.</p>
@@ -612,14 +612,14 @@
                 <br/>
                 <br/>
                 <a ng-href="{{deposit.btc.bitcoinUri}}">
-                  <waves-qr-code class="center" size="180" value="deposit.btc.bitcoinUri"></waves-qr-code>
+                  <amur-qr-code class="center" size="180" value="deposit.btc.bitcoinUri"></amur-qr-code>
                 </a>
               </div>
             </div>
           </div>
 
           <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="ETH">
-            <div id="deposit-eth-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="deposit-eth-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">Депозит: ETH</h2>
               <div class="plate-warning">
                 <p><b>Не отправляйте ETH со смарт-контрактов! </b></p>
@@ -627,26 +627,26 @@
                     Мы не принимаем такие переводы и не можем возместить их.<br/>
                    Вы потеряете эти деньги.</p>
               </div>
-              <p class="dialog-text">Для депозита ETH на ваш аккаунт Waves, отправьте ETH на указанный адрес.<br/>
+              <p class="dialog-text">Для депозита ETH на ваш аккаунт Amur, отправьте ETH на указанный адрес.<br/>
                 Минимальная сумма депозита <span class="fontBold">{{deposit.eth.minimumAmount}} ETH</span>.</p>
               <p class="dialog-text">Не отправляйте ERC20-токены! Только Ethereum.</p>
-              <table class="wavesTable bitcoin-requisites">
+              <table class="amurTable bitcoin-requisites">
                 <tbody>
                 <tr>
                   <td><b>{{deposit.eth.ethereumAddress}}</b></td>
                 </tr>
                 </tbody>
               </table>
-              <p class="dialog-text">Введите этот адрес в ваш Ethereum клиент или кошелёк. </br>Как только транзакция будет подтверждена, шлюз</br> отправит ETH-токен на ваш аккаунт Waves.</p>
+              <p class="dialog-text">Введите этот адрес в ваш Ethereum клиент или кошелёк. </br>Как только транзакция будет подтверждена, шлюз</br> отправит ETH-токен на ваш аккаунт Amur.</p>
               <p class="dialog-text">Обратите внимание, что шлюз не взимает комиссию за эту операцию.</p>
               <div class="textCenter">
-                <waves-qr-code class="center" size="180" value="deposit.eth.ethereumAddress"></waves-qr-code>
+                <amur-qr-code class="center" size="180" value="deposit.eth.ethereumAddress"></amur-qr-code>
               </div>
             </div>
           </div>
 
           <div class="noDisp">
-            <div id="digilira-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="digilira-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">ТУРЕЦКАЯ ЛИРА</h2>
               <p class="dialog-text">Please visit <a href="https://www.digilira.com/" target="_blank">Digilira</a> gateway.</p>
               <p class="dialog-text">You can only use Turkish Lira gateway if you have Turkish citizenship.</p>
@@ -656,80 +656,80 @@
           <!-- ДЛЯ НОВЫХ АКТИВОВ -->
 
           <div class="noDisp">
-            <div id="local-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="amur-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
     		<h2 class="sectionHeader">Внимание!</h2>
     		<p class="dialog-text">Эта функция находится в разработке и неактивна во время релиза.</p>
     		<p class="dialog-text">Подпишитесь на каналы социальных сетей, чтобы быть в курсе последних событий.</p>
     			<div class="modal-media">
-    		<a href="https://vk.com/localwaves" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
-
+    		<a href="https://vk.com/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+        <a href="https://t.me/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/telegram_icon.svg" /></a>
     			</div>
             </div>
           </div>
 
           <div class="noDisp">
-            <div id="quest-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="quest-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
     		<h2 class="sectionHeader">Внимание!</h2>
     		<p class="dialog-text">Эта функция находится в разработке и неактивна во время релиза.</p>
     		<p class="dialog-text">Подпишитесь на каналы социальных сетей, чтобы быть в курсе последних событий.</p>
     			<div class="modal-media">
-    		<a href="https://vk.com/localwaves" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
-    			</div>
+        <a href="https://vk.com/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+        <a href="https://t.me/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/telegram_icon.svg" /></a>    			</div>
             </div>
           </div>
 
           <div class="noDisp">
-            <div id="photo-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="photo-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
     		<h2 class="sectionHeader">Внимание!</h2>
     		<p class="dialog-text">Эта функция находится в разработке и неактивна во время релиза.</p>
     		<p class="dialog-text">Подпишитесь на каналы социальных сетей, чтобы быть в курсе последних событий.</p>
     			<div class="modal-media">
-    		<a href="https://vk.com/localwaves" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
-    			</div>
+        <a href="https://vk.com/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+        <a href="https://t.me/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/telegram_icon.svg" /></a>    			</div>
             </div>
           </div>
 
           <div class="noDisp">
-            <div id="beauty-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="beauty-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
     		<h2 class="sectionHeader">Внимание!</h2>
     		<p class="dialog-text">Эта функция находится в разработке и неактивна во время релиза.</p>
     		<p class="dialog-text">Подпишитесь на каналы социальных сетей, чтобы быть в курсе последних событий.</p>
     			<div class="modal-media">
-    		<a href="https://vk.com/localwaves" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
-    			</div>
+            <a href="https://vk.com/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+            <a href="https://t.me/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/telegram_icon.svg" /></a>    			</div>
             </div>
           </div>
 
            <div class="noDisp">
-            <div id="clothing-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="clothing-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
     		<h2 class="sectionHeader">Внимание!</h2>
     		<p class="dialog-text">Эта функция находится в разработке и неактивна во время релиза.</p>
     		<p class="dialog-text">Подпишитесь на каналы социальных сетей, чтобы быть в курсе последних событий.</p>
     			<div class="modal-media">
-    		<a href="https://vk.com/localwaves" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
-    			</div>
+            <a href="https://vk.com/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+            <a href="https://t.me/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/telegram_icon.svg" /></a>    			</div>
             </div>
           </div>
 
           <div class="noDisp">
-            <div id="tattoo-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="tattoo-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
     		<h2 class="sectionHeader">Внимание!</h2>
     		<p class="dialog-text">Эта функция находится в разработке и неактивна во время релиза.</p>
     		<p class="dialog-text">Подпишитесь на каналы социальных сетей, чтобы быть в курсе последних событий.</p>
     			<div class="modal-media">
-    		<a href="https://vk.com/localwaves" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
-    			</div>
+            <a href="https://vk.com/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/vk_icon.svg" /></a>
+            <a href="https://t.me/amurhost" target="_blank"><img id="icon-blog" class="modal-media-img" src="img/telegram_icon.svg" /></a>    			</div>
             </div>
           </div>
 
           <!--  -->
 
           <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="LTC">
-            <div id="deposit-ltc-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="deposit-ltc-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">Депозит: LTC</h2>
-              <p class="dialog-text">To deposit LTC to your Waves account, please send LTC to the address below.<br/>
+              <p class="dialog-text">To deposit LTC to your Amur account, please send LTC to the address below.<br/>
                 The minimum amount of deposit is <span class="fontBold">{{deposit.ltc.minimumAmount}} LTC</span>.</p>
-              <table class="wavesTable bitcoin-requisites">
+              <table class="amurTable bitcoin-requisites">
                 <tbody>
                 <tr>
                   <td><b>{{deposit.ltc.litecoinAddress}}</b></td>
@@ -737,20 +737,20 @@
                 </tbody>
               </table>
               <p class="dialog-text">Enter this address into your Litecoin client or wallet. Once the transaction is confirmed, <br/>
-                the gateway will process the transfer of LTC to a token in your Waves account.</p>
+                the gateway will process the transfer of LTC to a token in your Amur account.</p>
               <p class="dialog-text">Please note that the gateway doesn't apply any fees for this operation.</p>
               <div class="textCenter">
-                <waves-qr-code class="center" size="180" value="deposit.ltc.litecoinAddress"></waves-qr-code>
+                <amur-qr-code class="center" size="180" value="deposit.ltc.litecoinAddress"></amur-qr-code>
               </div>
             </div>
           </div>
 
           <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="ZEC">
-            <div id="deposit-zec-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="deposit-zec-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">Депозит: ZEC</h2>
-              <p class="dialog-text">To deposit Zcash to your Waves account, please send Zcash to the address below.<br/>
+              <p class="dialog-text">To deposit Zcash to your Amur account, please send Zcash to the address below.<br/>
                 The minimum amount of deposit is <span class="fontBold">{{deposit.zec.minimumAmount}} ZEC</span>.</p>
-              <table class="wavesTable bitcoin-requisites">
+              <table class="amurTable bitcoin-requisites">
                 <tbody>
                 <tr>
                   <td><b>{{deposit.zec.zcashAddress}}</b></td>
@@ -758,16 +758,16 @@
                 </tbody>
               </table>
               <p class="dialog-text">Enter this address into your Zcash client or wallet. Once the transaction is confirmed, <br/>
-                the gateway will process the transfer of Zcash to a token in your Waves account.</p>
+                the gateway will process the transfer of Zcash to a token in your Amur account.</p>
               <p class="dialog-text">Please note that the gateway doesn't apply any fees for this operation.</p>
               <div class="textCenter">
-                <waves-qr-code class="center" size="180" value="deposit.zec.zcashAddress"></waves-qr-code>
+                <amur-qr-code class="center" size="180" value="deposit.zec.zcashAddress"></amur-qr-code>
               </div>
             </div>
           </div>
 
           <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="EUR">
-            <div id="deposit-eur-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="deposit-eur-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">Депозит: EUR</h2>
               <p class="dialog-text textCenter">VERIFICATION</p>
               <p class="dialog-text textCenter">
@@ -798,13 +798,13 @@
                       data-clipboard-text="{{deposit.fiat.email}}"
                       ngclipboard-success="clipboardOk()">{{deposit.fiat.email}}</span>
                 <br/>
-                with your Waves wallet address as the subject
+                with your Amur wallet address as the subject
               </p>
             </div>
           </div>
 
           <div class="noDisp" ng-controller="walletDepositController as deposit" data-currency="USD">
-            <div id="deposit-usd-dialog" waves-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
+            <div id="deposit-usd-dialog" amur-dialog ok-button-caption="ЗАКРЫТЬ" cancel-button-visible="false">
               <h2 class="sectionHeader">Депозит: USD</h2>
               <p class="dialog-text textCenter">VERIFICATION</p>
               <p class="dialog-text textCenter">
@@ -832,13 +832,13 @@
                       data-clipboard-text="{{deposit.fiat.email}}"
                       ngclipboard-success="clipboardOk()">{{deposit.fiat.email}}</span>
                 <br/>
-                with your Waves wallet address as the subject
+                with your Amur wallet address as the subject
               </p>
             </div>
           </div>
 
           <div class="noDisp" ng-controller="cardDepositController as card">
-            <div id="card-deposit-dialog" waves-dialog ok-button-caption="КУПИТЬ" on-dialog-ok="card.redirectToMerchant(card.form)">
+            <div id="card-deposit-dialog" amur-dialog ok-button-caption="КУПИТЬ" on-dialog-ok="card.redirectToMerchant(card.form)">
               <h2 class="sectionHeader">Депозит с карты: <b>{{card.crypto.shortName}}</b></h2>
               <p class="textCenter">Обратите внимание: минимальная сумма, которую вы можете заплатить <b>{{card.limits.min | number:0}} {{card.payCurrency.displayName}}</b>,<br/>
                 максимальная сумма <b>{{card.limits.max | number:0}} {{card.payCurrency.displayName}}</b></p>
@@ -879,9 +879,9 @@
                         on-withdraw="walletList.withdraw(w)"
                         on-deposit="walletList.deposit(w)"></wallet-box>
           </div>
-          <waves-transaction-history heading="Последние транзакции"
+          <amur-transaction-history heading="Последние транзакции"
                                      transactions="walletList.transactions"
-                                     limit-to="10"></waves-transaction-history>
+                                     limit-to="10"></amur-transaction-history>
         </div>
         <!-- / WALLET TAB -->
 
@@ -889,7 +889,7 @@
         <div id="mBB-portfolio" class="mBB-content wScroll" ng-switch-when="portfolio">
           <div ng-controller="assetListController as assetList">
             <h2 class="sectionHeader">Портфель</h2>
-            <table class="wavesTable wScroll">
+            <table class="amurTable wScroll">
               <thead>
               <tr>
                 <td>Название токена</td>
@@ -923,9 +923,9 @@
               </tbody>
             </table>
             <div class="noDisp" ng-controller="assetDetailsController as details">
-              <div id="asset-details-dialog" waves-dialog cancel-button-visible="false">
+              <div id="asset-details-dialog" amur-dialog cancel-button-visible="false">
                 <h2 class="sectionHeader">Описание токена</h2>
-                <table class="wavesTable">
+                <table class="amurTable">
                   <thead>
                   <tr>
                     <td>Поле</td>
@@ -968,14 +968,14 @@
               </div>
             </div>
             <div class="noDisp" ng-controller="assetTransferController as transfer">
-              <div id="asset-transfer-dialog" waves-dialog ok-button-caption="ОТПРАВИТЬ" on-dialog-ok="transfer.submitTransfer(transfer.assetForm)">
+              <div id="asset-transfer-dialog" amur-dialog ok-button-caption="ОТПРАВИТЬ" on-dialog-ok="transfer.submitTransfer(transfer.assetForm)">
                 <form id="transfer-asset-form" name="transfer.assetForm" novalidate ng-validate="transfer.validationOptions">
                   <h2 class="sectionHeader">Отправить токен</h2>
                   <div class="balanceAmt">
-                    <p>Баланс: </p><span class="balancewaves">{{transfer.availableBalance | moneyLong:true}}</span><br/>
-                    <p>Баланс в Waves: </p><span class="balancewaves">{{transfer.feeAssetBalance | moneyLong:true}}</span>
+                    <p>Баланс: </p><span class="balanceamur">{{transfer.availableBalance | moneyLong:true}}</span><br/>
+                    <p>Баланс в Amur: </p><span class="balanceamur">{{transfer.feeAssetBalance | moneyLong:true}}</span>
                   </div>
-                  <table class="wavesTable">
+                  <table class="amurTable">
                     <thead>
                     <th>Описание</th>
                     <th>Ввод</th>
@@ -1006,7 +1006,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Комиссия в Waves</td>
+                      <td>Комиссия в Amur</td>
                       <td>
                         <md-autocomplete md-input-name="assetFee" md-selected-item="transfer.autocomplete.selectedFee" md-search-text="transfer.autocomplete.searchText"
                                          md-items="item in transfer.autocomplete.querySearch(transfer.autocomplete.searchText)"
@@ -1022,7 +1022,7 @@
                   </table>
                 </form>
               </div>
-              <div id="transfer-asset-confirmation" waves-dialog ok-button-caption="CONFIRM" ok-button-enabled="!transfer.broadcast.pending" on-dialog-ok="transfer.broadcastTransaction()">
+              <div id="transfer-asset-confirmation" amur-dialog ok-button-caption="CONFIRM" ok-button-enabled="!transfer.broadcast.pending" on-dialog-ok="transfer.broadcastTransaction()">
                 <div class="dialog-confirmation">
                   <p class="dialog-text">Вы отправляете <span class="confirmation-value">{{transfer.confirm.amount | moneyLong:true}}</span> с
                     <span class="confirmation-value">{{transfer.confirm.fee | moneyLong:true}}</span> комиссии <br/>
@@ -1033,14 +1033,14 @@
               </div>
             </div>
             <div class="noDisp" ng-controller="assetReissueController as reissue">
-              <div id="asset-reissue-dialog" waves-dialog ok-button-caption="REISSUE" ok-button-enabled="!reissue.broadcast.pending" on-dialog-ok="reissue.submitReissue(reissue.assetForm)">
+              <div id="asset-reissue-dialog" amur-dialog ok-button-caption="REISSUE" ok-button-enabled="!reissue.broadcast.pending" on-dialog-ok="reissue.submitReissue(reissue.assetForm)">
                 <form id="asset-reissue-form" name="reissue.assetForm" novalidate ng-validate="reissue.validationOptions">
                   <h2 class="sectionHeader">Перевыпуск токена</h2>
                   <div class="balanceAmt">
-                    <p>Выпущена общая сумма токенов: </p><span class="balancewaves">{{reissue.totalTokens.formatAmount()}}</span><br/>
-                    <p>Баланс Waves: </p><span class="balancewaves">{{reissue.wavesBalance.formatAmount(true)}}</span>
+                    <p>Выпущена общая сумма токенов: </p><span class="balanceamur">{{reissue.totalTokens.formatAmount()}}</span><br/>
+                    <p>Баланс Amur: </p><span class="balanceamur">{{reissue.amurBalance.formatAmount(true)}}</span>
                   </div>
-                  <table class="wavesTable">
+                  <table class="amurTable">
                     <thead>
                     <tr>
                       <th>Описание</th>
@@ -1074,14 +1074,14 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Комиссия в Waves</td>
+                      <td>Комиссия в Amur</td>
                       <td>{{::reissue.fee.formatAmount(true)}} {{::reissue.fee.currency.displayName}}</td>
                     </tr>
                     </tbody>
                   </table>
                 </form>
               </div>
-              <div id="asset-reissue-confirm-dialog" waves-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!reissue.broadcast.pending" on-dialog-ok="reissue.broadcastTransaction()">
+              <div id="asset-reissue-confirm-dialog" amur-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!reissue.broadcast.pending" on-dialog-ok="reissue.broadcastTransaction()">
                 <div class="dialog-confirmation">
                   <p class="dialog-text">Вы выпускаете дополнительную сумму <span class="confirmation-value">{{reissue.confirm.amount | moneyShort}}</span> токенов <br/>
                     к <span class="confirmation-value">{{reissue.confirm.amount.currency}}</span>
@@ -1092,13 +1092,13 @@
               </div>
             </div>
             <div class="noDisp" ng-controller="massPaymentController as mass">
-              <div id="asset-mass-pay-dialog" waves-dialog ok-button-caption="ОТПРАВИТЬ" show-buttons="false">
+              <div id="asset-mass-pay-dialog" amur-dialog ok-button-caption="ОТПРАВИТЬ" show-buttons="false">
                 <h2 class="sectionHeader">МАССОВАЯ ОТПАРВКА</h2>
                 <ng-switch on="mass.stage">
                   <p ng-if="mass.invalidPayment" class="notice-alert">{{mass.inputErrorMessage}}
                    Исправьте ошибку и снова загрузите.</p>
                   <form id="massPaymentFilesForm" name="mass.form" novalidate ng-switch-when="loading" ng-validate="mass.validationOptions">
-                    <table class="wavesTable">
+                    <table class="amurTable">
                       <thead>
                       <tr>
                         <th>ОПИСАНИЕ</th>
@@ -1140,7 +1140,7 @@
                     <p>Обратите внимание, что только первые 10 транзакций показаны ниже в качестве образца. Используйте функцию EXPORT для экспорта полной информации о транзакции в буфер обмена.</p>
                     <p>Итого транзакций: {{mass.summary.totalTransactions}} | Итого сумма: {{mass.summary.totalAmount.toTokens()}} | Итого с комиссией: {{mass.summary.totalFee.toTokens()}}</p>
 
-                    <table class="wavesTable">
+                    <table class="amurTable">
                       <thead>
                       <tr>
                         <td>ПОЛУЧАТЕЛЬ</td>
@@ -1163,7 +1163,7 @@
                   </div>
                 </ng-switch>
               </div>
-              <div id="asset-mass-pay-confirmation" waves-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!mass.broadcast.pending" on-dialog-ok="mass.broadcastTransaction()">
+              <div id="asset-mass-pay-confirmation" amur-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!mass.broadcast.pending" on-dialog-ok="mass.broadcastTransaction()">
                 <div class="dialog-confirmation">
                   <p class="dialog-text">Вы отправляете <span class="confirmation-value">{{mass.confirm.amount | moneyLong:true}}</span> с
                     <span class="confirmation-value">{{mass.confirm.fee | moneyLong:true}}</span> суммой комиссии <br/>
@@ -1178,15 +1178,15 @@
         <!-- / PORTFOLIO TAB -->
 
         <!-- DEX TAB -->
-        <waves-page ng-switch-when="exchange" page-title="DEX">
-          <waves-dex></waves-dex>
-        </waves-page>
+        <amur-page ng-switch-when="exchange" page-title="DEX">
+          <amur-dex></amur-dex>
+        </amur-page>
         <!-- / DEX TAB -->
 
         <!-- LEASING TAB -->
-        <waves-page ng-switch-when="leasing" page-title="Leasing">
-          <waves-leasing></waves-leasing>
-        </waves-page>
+        <amur-page ng-switch-when="leasing" page-title="Leasing">
+          <amur-leasing></amur-leasing>
+        </amur-page>
         <!-- / LEASING TAB -->
 
         <!-- VOTING TAB -->
@@ -1194,7 +1194,7 @@
           <div class="phContent">
             <h1>DECENTRALIZED VOTING</h1>
             <br/>
-            <p>With a fair and automated system, Waves' voting area enables communities and projects to achieve consensus for critical decision-making that might otherwise prove difficult or controversial. A full set of analytic tools will also be available to follow up the voting process in real time.
+            <p>With a fair and automated system, Amur' voting area enables communities and projects to achieve consensus for critical decision-making that might otherwise prove difficult or controversial. A full set of analytic tools will also be available to follow up the voting process in real time.
               <br/><br/>
               The Decentralized Voting feature launch is estimated for the first quarter of 2017.
             </p>
@@ -1206,9 +1206,9 @@
 
         <!-- HISTORY TAB -->
         <div id="mBB-history" class="mBB-content" ng-switch-when="history" ng-controller="historyController as history">
-          <waves-transaction-history heading="Последние транзакции"
+          <amur-transaction-history heading="Последние транзакции"
                                      transactions="history.transactions"
-                                     limit-to="1000"></waves-transaction-history>
+                                     limit-to="1000"></amur-transaction-history>
         </div>
         <!-- / HISTORY TAB -->
 
@@ -1219,9 +1219,9 @@
             <h2 class="sectionHeader">Выпустить токен</h2>
             <form id="create-asset-form" name="createAssetForm" novalidate ng-validate="ctrl.issuanceValidationOptions" ng-submit="ctrl.assetIssueConfirmation(createAssetForm, $event)">
               <div class="balanceAmt">
-                <p>Баланс в Waves: </p><span class="balancewaves">{{ctrl.wavesBalance | moneyLong:true}}</span>
+                <p>Баланс в Amur: </p><span class="balanceamur">{{ctrl.amurBalance | moneyLong:true}}</span>
               </div>
-              <table class="wavesTable">
+              <table class="amurTable">
                 <thead>
                 <tr>
                   <td>Описание</td>
@@ -1267,7 +1267,7 @@
               </div>
             </form>
 
-            <div id="create-asset-confirmation" waves-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!ctrl.broadcast.pending" on-dialog-ok="ctrl.broadcastIssueTransaction()">
+            <div id="create-asset-confirmation" amur-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!ctrl.broadcast.pending" on-dialog-ok="ctrl.broadcastIssueTransaction()">
               <div class="dialog-confirmation">
                 <p class="dialog-text">Вы выпускаете <span class="confirmation-value">{{ctrl.confirm.reissuable}}</span> токенв под именем
                   <span class="confirmation-value">{{ctrl.confirm.name}}</span><br/> с общим числом
@@ -1290,7 +1290,7 @@
             <p>
 
           </div>
-          <div id="addContact-wPop" class="wavesPop">
+          <div id="addContact-wPop" class="amurPop">
             <img class="wPop-header" src="img/modal-header.svg" />
             <form id="addContactForm" class="wPop-content">
               <h2 class="sectionHeader">ADD CONTACT</h2>
@@ -1318,7 +1318,7 @@
        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6318.0048603812!2d39.4451031456438!3d55.3012652809424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414a47ec2aa17613%3A0x65a1ca5b3b26b216!2z0JrQvtC70LjQvtC90L7QstC-LCDQnNC-0YHQutC-0LLRgdC60LDRjyDQvtCx0LsuLCAxNDAzMjQ!5e1!3m2!1sru!2sru!4v1521961114564" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
 <!--
           <p class="centerIt">
-          <div id="latestBlocks" class="wavesTable wScroll" >
+          <div id="latestBlocks" class="amurTable wScroll" >
             <table>
               <thead>
               <tr class="fade">
