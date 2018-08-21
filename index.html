@@ -19,11 +19,11 @@
 <html ng-app="app" ng-csp>
 <head>
   <meta charset="utf-8">
-  <title>Kolionovo Blockchain</title>
+  <title>Блокчейн-на-Амуре</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/kolionovo-0.5.18.css">
+  <link rel="stylesheet" href="css/amur.css">
 
-  <link href="img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link href="img/favicon.png" type="image/x-icon" rel="shortcut icon">
 </head>
 
 <body ng-controller="homeController as home" ng-switch on="home.screen">
@@ -123,7 +123,7 @@
             <div class="plate-warning">
               <p class="dialog-text" style="font-weight: bold;">С осторожностью обращайтесь с SEED (Секретной фразой)!</p>
               <p class="dialog-text">Только SEED-фраза может обеспечить доступ к вашему кошельку.</p>
-              <p class="dialog-text">1. Не используйте свою SEED-фразу нигде, кроме этого сайта <br/>(внимательно сравните с этим доменом kolionovo.org/platform).</p>
+              <p class="dialog-text">1. Не используйте свою SEED-фразу нигде, кроме этого сайта <br/>(внимательно сравните с этим доменом amur.host).</p>
               <p class="dialog-text">Если кто-то другой завладеет секретной фразой, вы потеряете свои активы.</p>
               <p class="dialog-text">2. Храните свою SEED-фразу в защищенном месте, это единственный способ восстановить ваш кошелек.</p>
             </div>
@@ -145,7 +145,7 @@
 
                 <div class="form-field">
                   <label for="walletName">
-                    Имя<span class="infoSpan" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="Создайте имя вашему аккаунту, 
+                    Имя<span class="infoSpan" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="Создайте имя вашему аккаунту,
                                                 <br/>
                                                 для этого используйте поле ниже.
                                                </i>"></span>
@@ -324,7 +324,7 @@
     <!-- APPLICATION TAB SELECTORS -->
     <section id="tabs" class="fFade noSelect">
       <div id="tabs-Iconset" class="centerIt">
-                
+
 
         <span waves-tab
               on-select="nav.changeTab(pageId)"
@@ -335,7 +335,7 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Кошелек</u></center><br/>Вкладка отображения основных активов"></span>
-                   
+
         <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
@@ -354,7 +354,7 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Децентрализованная Биржа</u></center><br/>Доступ к рынкам, где вы можете покупать,<br/>продавать и торговать активами."></span>
-        
+
         <!--<span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
@@ -365,17 +365,17 @@
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Лизинг</u></center><br/>Сдайте в лизин ваши Waves<br/>другому кошельку."></span>
           -->
-        
-      <!--<span waves-tab 
-        on-select="nav.changeTab(pageId)" 
-        current-page-id="nav.currentTab" 
-        page-id="voting" 
-        caption="'Voting tab'" 
+
+      <!--<span waves-tab
+        on-select="nav.changeTab(pageId)"
+        current-page-id="nav.currentTab"
+        page-id="voting"
+        caption="'Voting tab'"
         tooltipster tooltip-html
-        tooltip-theme="tooltipster-theme3" 
+        tooltip-theme="tooltipster-theme3"
         tooltip-title="<center><u>Voting Area</u></center><br/>Decentralized voting utility."></span>
     -->
-        
+
         <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
@@ -385,7 +385,7 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>История</u></center><br/>Доступ ко всей истории транзакций."></span>
-        
+
         <span waves-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
@@ -395,15 +395,15 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>Выпуск актива</u></center><br/>Здесь вы можете создать свой актив."></span>
-        
-      <!--  СООБЩЕНИЯ   
-        	<span waves-tab 
+
+      <!--  СООБЩЕНИЯ
+        	<span waves-tab
         	on-select="nav.changeTab(pageId)" current-page-id="nav.currentTab"
-        	 page-id="messages" 
-        	 caption="'messages tab'" 
+        	 page-id="messages"
+        	 caption="'messages tab'"
         	 tooltipster tooltip-html
-        tooltip-theme="tooltipster-theme3" 
-        tooltip-title="<center><u>messages</u></center><br/>Messages."></span> 	
+        tooltip-theme="tooltipster-theme3"
+        tooltip-title="<center><u>messages</u></center><br/>Messages."></span>
 -->
 
 		<!--   -->
@@ -416,7 +416,7 @@
               tooltip-html
               tooltip-theme="tooltipster-theme3"
               tooltip-title="<center><u>КАРТА</u></center><br/>Карта деревни Колионово."></span>
-    
+
       </div>
     </section>
 
@@ -875,7 +875,7 @@
                   <button class="wButton wButton-neg fade" ng-click="assetList.assetDetails(tx.id)">ОПИСАНИЕ</button><span class="divider-2"></span>
                   <!-- TODO: remove MASS PAY feature or re-engineer it using a centralized service
                   <button class="wButton wButton-neg fade" ng-click="assetList.assetMassPay(tx.id)">МАССОВАЯ ОТПРАВКА</button>  -->
-           
+
                 </td>
               </tr>
               </tbody>
@@ -1123,7 +1123,7 @@
               </div>
               <div id="asset-mass-pay-confirmation" waves-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!mass.broadcast.pending" on-dialog-ok="mass.broadcastTransaction()">
                 <div class="dialog-confirmation">
-                  <p class="dialog-text">Вы отправляете <span class="confirmation-value">{{mass.confirm.amount | moneyLong:true}}</span> с 
+                  <p class="dialog-text">Вы отправляете <span class="confirmation-value">{{mass.confirm.amount | moneyLong:true}}</span> с
                     <span class="confirmation-value">{{mass.confirm.fee | moneyLong:true}}</span> суммой комиссии <br/>
                     на <span class="confirmation-value">{{mass.confirm.recipients}}</span> адреса получателей.
                   </p>
@@ -1318,7 +1318,7 @@
   </div>
 </div> <!-- Wrapper div END -->
 
-<script src="js/kolionovo-0.5.18.js"></script>
+<script src="js/amur.js"></script>
 
 
 </body>
