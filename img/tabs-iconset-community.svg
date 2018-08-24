@@ -33,12 +33,12 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1366"
-     inkscape:window-height="691"
+     inkscape:window-height="696"
      id="namedview15"
      showgrid="false"
-     inkscape:zoom="13.906433"
-     inkscape:cx="13.115151"
-     inkscape:cy="11.017041"
+     inkscape:zoom="3.4766083"
+     inkscape:cx="27.641381"
+     inkscape:cy="14.430538"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -48,7 +48,7 @@
 	.st0{fill:#3F58A7;}
 	.st1{fill:#FFFFFF;}
 </style><path
-     style="fill:#2584c6;fill-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     style="fill:#00aeef;fill-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
      inkscape:connector-curvature="0"
      class="st0"
      d="M 22,24 H 2 C 0.89999999,24 0,23.1 0,22 V 2 C 0,0.9 0.89999999,0 2,0 h 20 c 1.1,0 2,0.9 2,2 v 20 c 0,1.1 -0.9,2 -2,2 z"
@@ -68,7 +68,7 @@
 	.st0{fill:url(#SVGID_1_);}
 	.st1{fill:#FFFFFF;}
 </style><path
-     style="fill:#2584c6;fill-opacity:1;stroke-width:0.31159088"
+     style="fill:#00aeef;fill-opacity:1;stroke-width:0.31159088"
      inkscape:connector-curvature="0"
      class="st1"
      d="M 15.148074,7.4337519 C 14.369098,6.5612974 13.372007,6.062752 12.187961,5.9381157 10.100303,5.7200021 8.1061208,6.9352065 7.3583026,8.898229 c -0.2804325,0.6855004 -0.3739096,1.371 -0.3115908,2.118818 0.062321,0.747819 0.3427491,1.464477 0.6543411,2.149978 0.5608627,1.184044 1.3086809,2.243453 2.1811358,3.240544 0.5608643,0.654341 1.1840463,1.277523 1.7760683,1.900705 0.03116,0.03115 0.03116,0.03115 0.03116,0.06232 0.03115,0 0.03115,0 0.06232,0 0.34275,-0.342749 0.6855,-0.6855 0.997091,-1.02825 0.99709,-1.059409 1.900704,-2.212295 2.617363,-3.489818 0.405068,-0.716658 0.747818,-1.464476 0.934772,-2.274612 0.311591,-1.5891146 -0.09348,-2.9912735 -1.152886,-4.1441597 z m -3.427498,6.0760221 c -1.620273,0 -2.9601142,-1.308681 -2.9601142,-2.960112 0,-1.651433 1.3086812,-2.9601147 2.9601142,-2.9601147 1.651431,0 2.960113,1.3086817 2.960113,2.9601147 0,1.651431 -1.339842,2.960112 -2.960113,2.960112 z"
@@ -77,9 +77,4 @@
      type="text/css">
 	.st0{fill:#21409A;}
 	.st1{fill:#FFFFFF;}
-</style><circle
-     style="opacity:1;fill:#ef4136;fill-opacity:0.94594589;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-     id="path864"
-     cx="11.715738"
-     cy="10.552986"
-     r="3.0920942" /></svg>
+</style></svg>
