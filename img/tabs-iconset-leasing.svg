@@ -1,11 +1,96 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Roman Inozemtsev: https://github.com/mir-one/  -->
-<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
-<style type="text/css">
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_2"
+   x="0px"
+   y="0px"
+   viewBox="0 0 22 25.403412"
+   xml:space="preserve"
+   sodipodi:docname="tabs-iconset-leasing.svg"
+   width="22"
+   height="25.403412"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
+   id="metadata11"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+   id="defs9" /><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1366"
+   inkscape:window-height="691"
+   id="namedview7"
+   showgrid="false"
+   inkscape:zoom="9.8333333"
+   inkscape:cx="25.338983"
+   inkscape:cy="13.515264"
+   inkscape:window-x="0"
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_2" />
+<style
+   type="text/css"
+   id="style2">
 	.st0{fill:#4598C5;}
 </style>
-<path class="st0" d="M24,11.9c0-5.2-3.4-9.6-8-11.2v2.2c3.5,1.5,6,5,6,9.1c0,2-0.5,3.8-1.5,5.3L13,17.4l-0.2-17l0,0V0.1
-	c-0.3,0-0.6,0-0.9,0C5.3,0.1,0,5.5,0,12.1c0.1,6.6,5.5,12,12.1,11.9S24.1,18.5,24,11.9z M12.1,22c-5.5,0-10-4.4-10.1-9.9
-	c0-4.9,3.5-9,8.1-9.9l0.1,16.7h1.9l0,0l7-0.1C17.4,20.8,14.9,22,12.1,22z"/>
-</svg>
+
+<path
+   sodipodi:type="star"
+   style="opacity:1;fill:#00aeef;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+   id="path825"
+   sodipodi:sides="6"
+   sodipodi:cx="11"
+   sodipodi:cy="12.701706"
+   sodipodi:r1="12.701706"
+   sodipodi:r2="11"
+   sodipodi:arg1="0.52359878"
+   sodipodi:arg2="1.0471976"
+   inkscape:flatsided="true"
+   inkscape:rounded="0"
+   inkscape:randomized="0"
+   d="M 22,19.052559 11,25.403412 -3.7000556e-8,19.052559 1.8908555e-8,6.3508529 11,0 22,6.350853 Z" /><path
+   d="M 21,18.475209 11,24.248712 0.99999974,18.475209 0.99999979,6.9282031 11,1.1547003 21,6.9282031 Z"
+   inkscape:randomized="0"
+   inkscape:rounded="0"
+   inkscape:flatsided="true"
+   sodipodi:arg2="1.0471976"
+   sodipodi:arg1="0.52359878"
+   sodipodi:r2="10"
+   sodipodi:r1="11.547006"
+   sodipodi:cy="12.701706"
+   sodipodi:cx="11"
+   sodipodi:sides="6"
+   id="path827"
+   style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+   sodipodi:type="star" /><g
+   id="Outline"
+   transform="matrix(0.60451977,0,0,0.60451977,3.7457627,5.4474687)"
+   style="fill:#00aeef;fill-opacity:1;stroke-width:1.65420556">
+	<g
+   id="ui_x5F_spec_x5F_header"
+   style="fill:#00aeef;fill-opacity:1;stroke-width:1.65420556">
+	</g>
+	<g
+   id="g841"
+   style="fill:#00aeef;fill-opacity:1;stroke-width:1.65420556">
+		<path
+   inkscape:connector-curvature="0"
+   d="M 17,16 13,12 V 8.82 C 14.16,8.4 15,7.3 15,6 15,4.34 13.66,3 12,3 10.34,3 9,4.34 9,6 9,7.3 9.84,8.4 11,8.82 V 12 L 7,16 H 3 v 5 h 5 v -3.05 l 4,-4.2 4,4.2 V 21 h 5 v -5 z"
+   id="path839"
+   style="fill:#00aeef;fill-opacity:1;stroke-width:1.65420556" />
+	</g>
+</g></svg>

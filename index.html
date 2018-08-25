@@ -276,16 +276,16 @@
       <div class="noDisp" ng-controller="createAliasController as create">
         <div id="create-alias-dialog" amur-dialog global="true" ok-button-caption="СОЗДАТЬ" on-dialog-ok="create.confirmCreateAlias(create.form)">
           <div class="existing-aliases">
-            <h2 class="sectionHeader">Ваши псевдонимы</h2>
+            <h2 class="sectionHeader">Ваши алиасы</h2>
             <div ng-if="create.aliasList !== null">
               <span ng-repeat="alias in create.aliasList"><span class="alias">{{alias}}</span>&nbsp;</span>
-              <span ng-if="create.aliasList.length === 0">Сейчас у вас нет ни одного псевдонима</span>
+              <span ng-if="create.aliasList.length === 0">Сейчас у вас нет ни одного алиаса</span>
             </div>
             <div ng-if="create.aliasList === null">
               <span>Загрузка...</span>
             </div>
           </div>
-          <h2 class="sectionHeader">Создать псевдоним</h2>
+          <h2 class="sectionHeader">Создать алиса</h2>
           <p>Удобное имя для вашего адреса</p>
           <form name="create.form" novalidate ng-validate="create.validationOptions">
             <table>
@@ -295,7 +295,7 @@
                 <td><input class="wInput form-control" name="aliasName" type="text" placeholder="Символьное имя" ng-model="create.alias"/></td>
               </tr>
               <tr>
-                <td>Комиссия в Амур</td>
+                <td>Комиссия</td>
                 <td>{{::create.fee.formatAmount(true)}} {{::create.fee.currency.displayName}}</td>
               </tr>
               </tbody>
@@ -304,8 +304,8 @@
         </div>
         <div id="create-alias-confirmation" amur-dialog global="true" ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!create.broadcast.pending" on-dialog-ok="create.broadcastTransaction()">
           <div class="dialog-confirmation">
-            <p class="dialog-text">Вы действительно хотяте создать псевдоним <span class="confirmation-value">{{create.alias}}</span>
-              для вашего адреса.
+            <p class="dialog-text">Вы действительно хотяте создать алиас <span class="confirmation-value">{{create.alias}}</span>
+              для вашего адреса?
             </p>
             <p class="dialog-text">Нажмите <span class="fontBold"> ПОДТВЕРДИТЬ </span>для выполнения операции, или <span class="fontBold"> ОТМЕНИТЬ </span> для выхода.</p>
           </div>
@@ -333,7 +333,7 @@
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Кошелек</u></center><br/>Вкладка отображения основных токенов"></span>
+              tooltip-title="<center><u>Кошелек</u></center><br/>Показывает основные токены"></span>
 
         <span amur-tab
               on-select="nav.changeTab(pageId)"
@@ -343,7 +343,7 @@
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Портфель</u></center><br/>Отображает все ваши токены."></span>
+              tooltip-title="<center><u>Портфель</u></center><br/>Показывает все ваши активы."></span>
         <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
@@ -352,9 +352,9 @@
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Биржа</u></center><br/>Доступ к рынкам, где вы можете покупать,<br/>продавать и торговать токенами."></span>
+              tooltip-title="<center><u>Биржа</u></center><br/>Доступ к обменнику, где вы можете покупать,<br/>продавать и обменивать токены."></span>
 
-        <!--<span amur-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="leasing"
@@ -362,8 +362,7 @@
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Лизинг</u></center><br/>Сдайте в лизин ваши Amur<br/>другому кошельку."></span>
-          -->
+              tooltip-title="<center><u>Лизинг</u></center><br/>Передайте в лизинг ваши токены Амур<br/>для поддержания сети."></span>
 
       <!--<span amur-tab
         on-select="nav.changeTab(pageId)"
@@ -383,9 +382,9 @@
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>История</u></center><br/>Доступ ко всей истории транзакций."></span>
+              tooltip-title="<center><u>История</u></center><br/>Доступ к вашей истории транзакций."></span>
 
-      <!--  <span amur-tab
+        <span amur-tab
               on-select="nav.changeTab(pageId)"
               current-page-id="nav.currentTab"
               page-id="tokens"
@@ -393,8 +392,7 @@
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>Выпуск актива</u></center><br/>Здесь вы можете создать свой актив."></span>
-            -->
+              tooltip-title="<center><u>Выпуск токена</u></center><br/>Здесь вы можете создать свой токен."></span>
 
       <!--  СООБЩЕНИЯ
         	<span amur-tab
@@ -414,7 +412,7 @@
               tooltipster
               tooltip-html
               tooltip-theme="tooltipster-theme3"
-              tooltip-title="<center><u>КАРТА</u></center><br/>Локальный бизнес использующий локальные токены"></span>
+              tooltip-title="<center><u>БЛОКЧЕЙН</u></center><br/>Список сгенерированных блоков"></span>
       </div>
     </section>
 
@@ -431,7 +429,7 @@
                 <table>
                   <div class="balanceAmt">
                     <div ng-if="!send.feeAndTransferAssetsAreTheSame"><p>Баланс: </p><span class="balanceamur">{{send.assetBalance | moneyLong:true}}</span><br/></div>
-                    <p>Баланс в Амур: </p><span class="balanceamur">{{send.feeAssetBalance | moneyLong:true}}</span>
+                    <p>Баланс в токенах Амур: </p><span class="balanceamur">{{send.feeAssetBalance | moneyLong:true}}</span>
                   </div>
                   <thead>
                   <tr>
@@ -441,7 +439,7 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td>Адрес получателя</td>
+                    <td>Получатель</td>
                     <td>
                       <div class="form-field">
                         <input class="wInput form-control" name="sendRecipient" type="text" placeholder="Получатель" ng-model="send.recipient" />
@@ -457,7 +455,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Сообщение</td>
+                    <td>Описание</td>
                     <td>
                       <div class="form-field">
                         <textarea rows="2" class="wInput form-control" name="sendAttachment" ng-model="send.attachment"></textarea>
@@ -465,7 +463,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Комиссия в Амур</td>
+                    <td>Комиссия</td>
                     <td>
                       <md-autocomplete md-input-name="sendFee" md-selected-item="send.autocomplete.selectedFee" md-search-text="send.autocomplete.searchText"
                                        md-items="item in send.autocomplete.querySearch(send.autocomplete.searchText)"
@@ -519,7 +517,7 @@
                     <td><input class="wInput form-control" name="withdrawTotal" type="text" placeholder="Общее количество" ng-model="withdraw.total" ng-change="withdraw.refreshAmount()" decimal-input-restrictor/></td>
                   </tr>
                   <tr>
-                    <td class="padded">Комиссия в Амур</td>
+                    <td class="padded">Комиссия</td>
                     <td class="padded">
                       <md-autocomplete md-input-name="withdrawFee" md-selected-item="withdraw.autocomplete.selectedFee" md-search-text="withdraw.autocomplete.searchText"
                                        md-items="item in withdraw.autocomplete.querySearch(withdraw.autocomplete.searchText)"
@@ -881,7 +879,7 @@
           </div>
           <amur-transaction-history heading="Последние транзакции"
                                      transactions="walletList.transactions"
-                                     limit-to="10"></amur-transaction-history>
+                                     limit-to="100"></amur-transaction-history>
         </div>
         <!-- / WALLET TAB -->
 
@@ -912,8 +910,7 @@
                 <td>{{tx.balance | moneyShort}}</td>
                 <td>
                   <button class="wButton wButton-neg fade" ng-click="assetList.assetTransfer(tx.id)">ОТПРАВИТЬ</button><span class="divider-2"></span>
-                  <!--<button class="wButton wButton-neg fade" ng-disabled="!tx.formatted.canReissue" ng-click="assetList.assetReissue(tx.id)">ПЕРЕВЫПУСТИТЬ</button><span class="divider-2"></span>
--->
+                  <button class="wButton wButton-neg fade" ng-disabled="!tx.formatted.canReissue" ng-click="assetList.assetReissue(tx.id)">ПЕРЕВЫПУСТИТЬ</button><span class="divider-2"></span>
                   <button class="wButton wButton-neg fade" ng-click="assetList.assetDetails(tx.id)">ОПИСАНИЕ</button><span class="divider-2"></span>
                   <!-- TODO: remove MASS PAY feature or re-engineer it using a centralized service -->
                   <!--<button class="wButton wButton-neg fade" ng-click="assetList.assetMassPay(tx.id)">МАССОВАЯ ОТПРАВКА</button>
@@ -973,7 +970,7 @@
                   <h2 class="sectionHeader">Отправить токен</h2>
                   <div class="balanceAmt">
                     <p>Баланс: </p><span class="balanceamur">{{transfer.availableBalance | moneyLong:true}}</span><br/>
-                    <p>Баланс в Amur: </p><span class="balanceamur">{{transfer.feeAssetBalance | moneyLong:true}}</span>
+                    <p>Баланс в токенах Амур: </p><span class="balanceamur">{{transfer.feeAssetBalance | moneyLong:true}}</span>
                   </div>
                   <table class="amurTable">
                     <thead>
@@ -982,7 +979,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                      <td>Адрес получателя</td>
+                      <td>Получатель</td>
                       <td>
                         <div class="form-field">
                           <input class="wInput form-control" name="assetRecipient" type="text" placeholder="Получатель" ng-model="transfer.recipient" />
@@ -998,7 +995,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Сообщение</td>
+                      <td>Описание</td>
                       <td>
                         <div class="form-field">
                           <textarea rows="2" class="wInput form-control" name="assetAttachment" ng-model="transfer.attachment"></textarea>
@@ -1006,7 +1003,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Комиссия в Амур</td>
+                      <td>Комиссия</td>
                       <td>
                         <md-autocomplete md-input-name="assetFee" md-selected-item="transfer.autocomplete.selectedFee" md-search-text="transfer.autocomplete.searchText"
                                          md-items="item in transfer.autocomplete.querySearch(transfer.autocomplete.searchText)"
@@ -1033,7 +1030,7 @@
               </div>
             </div>
             <div class="noDisp" ng-controller="assetReissueController as reissue">
-              <div id="asset-reissue-dialog" amur-dialog ok-button-caption="REISSUE" ok-button-enabled="!reissue.broadcast.pending" on-dialog-ok="reissue.submitReissue(reissue.assetForm)">
+              <div id="asset-reissue-dialog" amur-dialog ok-button-caption="ПЕРЕВЫПУСТИТЬ" ok-button-enabled="!reissue.broadcast.pending" on-dialog-ok="reissue.submitReissue(reissue.assetForm)">
                 <form id="asset-reissue-form" name="reissue.assetForm" novalidate ng-validate="reissue.validationOptions">
                   <h2 class="sectionHeader">Перевыпуск токена</h2>
                   <div class="balanceAmt">
@@ -1049,7 +1046,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                      <td>Идентификатор токена</td>
+                      <td>Идентификатор</td>
                       <td>{{reissue.assetId}}</td>
                     </tr>
                     <tr>
@@ -1066,7 +1063,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Включить перевыпуск</td>
+                      <td>Перевыпускаемый</td>
                       <td>
                         <div class="form-field">
                           <input class="wInput form-control" name="assetReissue" type="checkbox" ng-model="reissue.reissuable" />
@@ -1074,7 +1071,7 @@
                       </td>
                     </tr>
                     <tr>
-                      <td>Комиссия в Амур</td>
+                      <td>Комиссия</td>
                       <td>{{::reissue.fee.formatAmount(true)}} {{::reissue.fee.currency.displayName}}</td>
                     </tr>
                     </tbody>
@@ -1219,7 +1216,7 @@
             <h2 class="sectionHeader">Выпустить токен</h2>
             <form id="create-asset-form" name="createAssetForm" novalidate ng-validate="ctrl.issuanceValidationOptions" ng-submit="ctrl.assetIssueConfirmation(createAssetForm, $event)">
               <div class="balanceAmt">
-                <p>Баланс в Amur: </p><span class="balanceamur">{{ctrl.amurBalance | moneyLong:true}}</span>
+                <p>Баланс в токенах Амур: </p><span class="balanceamur">{{ctrl.amurBalance | moneyLong:true}}</span>
               </div>
               <table class="amurTable">
                 <thead>
@@ -1238,7 +1235,7 @@
                   <td><textarea id="assetDescription" name="assetDescription" class="wInput" rows="3" ng-model="ctrl.asset.description" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="Описание нельзя изменить позже.<br/>"></textarea></td>
                 </tr>
                 <tr>
-                  <td><label for="assetTotalTokens">Всего токенов</label></td>
+                  <td><label for="assetTotalTokens">Количество</label></td>
                   <td><input id="assetTotalTokens" name="assetTotalTokens" class="wInput" type="text" ng-model="ctrl.asset.totalTokens" integer-input-restrictor tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="
                   	Перевыпускаемый тип <br/>
                   	позволяет при необходимости <br/>
@@ -1253,7 +1250,7 @@
                 </tr>
                 <tr>
                   <td><label for="assetReissuable">Перевыпускаемый</label></td>
-                  <td><input id="assetReissuable" name="assetReissuable" type="checkbox" class="wInput" ng-model="ctrl.asset.reissuable" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="ПЕРЕВЫПУСК позволяет дополнительную <br/>  эмиссию токенов, которые будут <br/>добавлены к основному активу. <br/> <br/> окен без ПЕРЕВЫПУСКА будет ограничен <br/>суммарным количеством, определенным<br/> в этой форме."/></td>
+                  <td><input id="assetReissuable" name="assetReissuable" type="checkbox" class="wInput" ng-model="ctrl.asset.reissuable" tooltipster tooltip-theme="tooltipster-theme1" tooltip-html title="ПЕРЕВЫПУСК позволяет дополнительную <br/>  эмиссию токенов, которые будут <br/>добавлены к основной сумме. <br/> <br/> Токен без ПЕРЕВЫПУСКА будет ограничен <br/>суммарным количеством, определенным<br/> в этой форме."/></td>
                 </tr>
                 <tr class="noSelect">
                   <td>Комиссия</td>
@@ -1269,12 +1266,12 @@
 
             <div id="create-asset-confirmation" amur-dialog ok-button-caption="ПОДТВЕРДИТЬ" ok-button-enabled="!ctrl.broadcast.pending" on-dialog-ok="ctrl.broadcastIssueTransaction()">
               <div class="dialog-confirmation">
-                <p class="dialog-text">Вы выпускаете <span class="confirmation-value">{{ctrl.confirm.reissuable}}</span> токенв под именем
-                  <span class="confirmation-value">{{ctrl.confirm.name}}</span><br/> с общим числом
-                  <span class="confirmation-value">{{ctrl.confirm.totalTokens}}</span> общей суммы токенов
+                <p class="dialog-text">Вы выпускаете <span class="confirmation-value">{{ctrl.confirm.reissuable}}</span> токен под именем
+                  <span class="confirmation-value">{{ctrl.confirm.name}}</span><br/> с общим количеством
+                  <span class="confirmation-value">{{ctrl.confirm.totalTokens}}</span> токенов
                 </p>
                 <p class="dialog-text notice-alert" ng-if="!ctrl.asset.reissuable">Обратите внимание, что вы пометили токен как НЕ ПЕРЕВЫПУСКАЕМЫЙ. <br/>
-                   Токены, созданные как ПЕРЕВЫПУСКАЕМЫЕ, могут быть позже изменены на НЕ ПЕРЕВЫПУСКАЕМЫЕ, <br/> однако токен, помеченный как НЕ ПЕРЕВЫПУСКАЕМЫй, никогда не может быть ПЕРЕВЫПУЩЕН.</p>
+                   Токены, созданные как ПЕРЕВЫПУСКАЕМЫЕ, могут быть позже изменены на НЕ ПЕРЕВЫПУСКАЕМЫЕ, <br/> однако токен, помеченный как НЕ ПЕРЕВЫПУСКАЕМЫЙ, никогда не может быть ПЕРЕВЫПУЩЕН.</p>
                 <p class="dialog-text">Пожалуйста <span class="fontBold"> ПОДТВЕРДИТЕ </span>для выпуска или <span class="fontBold"> ОТМЕНИТЕ </span> чтобы выйти.</p>
               </div>
             </div>
@@ -1314,26 +1311,24 @@
       <!-- COMMUNITY TAB -->
       <div id="mBB-community" class="mBB-content" ng-switch-when="community" ng-controller="communityController as community">
         <!-- Temporary -->
-        <h2 class="sectionHeader">КАРТА ЛОКАЛЬНОГО БИЗНЕСА</h2>
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6318.0048603812!2d39.4451031456438!3d55.3012652809424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414a47ec2aa17613%3A0x65a1ca5b3b26b216!2z0JrQvtC70LjQvtC90L7QstC-LCDQnNC-0YHQutC-0LLRgdC60LDRjyDQvtCx0LsuLCAxNDAzMjQ!5e1!3m2!1sru!2sru!4v1521961114564" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-<!--
+        <h2 class="sectionHeader">БЛОКЧЕЙН</h2>
           <p class="centerIt">
           <div id="latestBlocks" class="amurTable wScroll" >
             <table>
               <thead>
               <tr class="fade">
-                <td>HEIGHT</td>
-                <td>DATE</td>
-                <td>TRANSACTIONS</td>
-                <td>GENERATOR</td>
+                <td>БЛОК</td>
+                <td>ДАТА</td>
+                <td>ТРАНЗАКЦИИ</td>
+                <td>ГЕНЕРАТОР</td>
               </tr>
               </thead>
               <tbody id="latestBlocksTable">
               <tr class="fade">
                 <td>{{community.candidate.block}}</td>
-                <td><i>incoming</i></td>
+                <td><i>входящая</i></td>
                 <td>{{community.candidate.size}}</td>
-                <td><i>unconfirmed</i></td>
+                <td><i>неподтвержденная</i></td>
               </tr>
               <tr class="fade" ng-repeat="block in community.blocks | orderBy:'timestamp':true">
                 <td>{{block.height}}</td>
@@ -1345,7 +1340,6 @@
               </tr>
               </tbody>
             </table>
-        -->
 
 
           </div>
